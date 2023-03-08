@@ -1,4 +1,4 @@
-main(){
+function main(){
 // Define the coordinates for your markers
 var marker1Coords = [51.5074, 0.1278]; // London, UK
 var marker2Coords = [40.7128, -74.0060]; // New York City, USA
