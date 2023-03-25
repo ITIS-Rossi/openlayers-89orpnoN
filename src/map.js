@@ -4,8 +4,8 @@ function init() { //crea le variabili e la mappa
   ol.proj.useGeographic()
 
 
-  markerImage = document.createElement("img") //questa parte crea lo style dei marker (in particolare l'icona)
-  markerImage.src = "Media\\Img\\marker.png"
+//questa parte crea lo style dei marker (in particolare l'icona)
+
   markerStyle = new ol.style.Style({
     image: new ol.style.Icon({
       src: "Media\\Img\\marker.png",
@@ -14,18 +14,20 @@ function init() { //crea le variabili e la mappa
       })
     })
 
-  markerLayer = new ol.layer.Vector({ //questa parte crea il layer dei marker con i marker dentro
-    source: new ol.source.Vector({
-    features:[
-      new ol.Feature({
-        geometry: new ol.geom.Point([11.555649865625005,45.55247714363049])
-        }),
-      new ol.Feature({
-        geometry: new ol.geom.Point([11.537309388338823,45.53916070075534])
+    markerLayer = new ol.layer.Vector({ //questa parte crea il layer dei marker con i marker dentro
+      source: new ol.source.Vector({
+      features:[
+        new ol.Feature({
+          geometry: new ol.geom.Point([11.555649865625005,45.55247714363049]),
+          Nome: "Campo di prigionia ITIS A. Rossi"
+          }),
+        new ol.Feature({
+          geometry: new ol.geom.Point([11.537309388338823,45.53916070075534]),
+          Nome: "Chiesa Millenaria di San Giorgio"
+        })
+        ]
       })
-      ]
     })
-  })
   markerLayer.setStyle(markerStyle) //aggiunge lo style al layer dei marker
 
   popup = document.getElementById('popup'); //ottiene gli elementi html del popup
@@ -57,11 +59,13 @@ function handleClick(click){ //cosa deve fare quando un utente clicca sulla mapp
   console.log("rilevato click")
   console.log(Features)
   if (Features.length >= 1){
+    feature = Features[0]
     console.log("trovata feature")
-    console.log(Features)
-    coordFeature = Features[0].values_.geometry.flatCoordinates
+    console.log(feature)
+    coordFeature = feature.values_.geometry.flatCoordinates
+    nome = feature.values_.Nome
     overlay.setPosition(coordFeature)
-    innerPopup.innerHTML = coordFeature
+    innerPopup.innerHTML = nome + "<br>" + coordFeature 
   } else {
     overlay.setPosition(undefined)
   }
