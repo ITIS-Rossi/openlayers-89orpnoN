@@ -1,15 +1,25 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=10109403&assignment_repo_type=AssignmentRepo)
-# Mappe Geografiche
+# Mappe Geografiche 2
 
-Come interagire con una mappa ?
+Creare una pagina HTML comprensiva di form che interagisca con una mappa tramite OpenLayers 
+(v. fase 1) per permettere di:
 
-A. Visualizzare una mappa centrata sull'Istituto -DONE
+-Regolare il centro e lo zoom della mappa
 
-B. Visualizzare almeno due markers sulla mappa -Done
+-Convertire un indirizzo in un marker sulla mappa
 
-C. Visualizzare popup differenziati per ogni marker -Done
+-Rimuovere un marker dalla mappa
+
+
+N.B. Per ottenere le coordinate (lat, lng) da un indirizzo, utilizzare Nominatim (v. link)
+
+⚠️ COSA CONSEGNARE: ⚠️
+
+Creare un repository GitHub dove sincronizzare tutti i files necessary (js, css, html, png, …),
+come visto a lezione (abilitare il tasto Clona Repository in VsCode)
+
+Garantire l’accesso al repository ai due proff. FLovisonRossi e mzigante
 
 Riferimenti:
 - OpenLayers v.7
 
-Odio questo framework
+Odio questo framework, parte 2.

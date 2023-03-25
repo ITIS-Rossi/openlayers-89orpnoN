@@ -2,7 +2,9 @@ html,
 body {
   margin: 0;
   height: 100%;
+  
 }
+
 
 #mappa {
   position: absolute;
@@ -15,3 +17,4 @@ body {
   padding: 10px;
   background-color: white;
 }
+

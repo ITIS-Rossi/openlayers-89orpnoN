@@ -10,6 +10,32 @@
         <title>Mappa in JS</title>
     </head>
     <body>
+        <div id="cacioepepe">
+            <input id="searchField" type="text">
+            <button onclick="Cerca()">Cerca</button>
+            <br>
+            zoom
+            <button onclick="Zoom(+1)">+</button>
+            <button onclick="Zoom(-1)">-</button>
+            <br>
+            <table>
+                <tr>
+                    <th></th>
+                    <th><button onclick="Center([0,0.01])">^</button></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th><button onclick="Center([-0.01,0])">&lt</button></th>
+                    <th></th>
+                    <th><button onclick="Center([0.01,0])">&gt</button></th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th><button onclick="Center([0,-0.01])">v</button></th>
+                </tr>
+            </table>
+            
+        </div>
         <div id="map" style="width: 100%; height: 100%"></div>
         <div id="popup" class="ol-popup">
             <div id="popup-content"></div>
