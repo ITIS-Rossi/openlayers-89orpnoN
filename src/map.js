@@ -4,8 +4,8 @@ function init() { //crea le variabili e la mappa
   ol.proj.useGeographic()
 
 
-  markerImage = document.createElement("img") //questa parte crea lo style dei marker (in particolare l'icona)
-  markerImage.src = "Media\\Img\\marker.png"
+ //questa parte crea lo style dei marker (in particolare l'icona)
+
   markerStyle = new ol.style.Style({
     image: new ol.style.Icon({
       src: "Media\\Img\\marker.png",
