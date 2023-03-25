@@ -5,9 +5,11 @@ Come interagire con una mappa ?
 
 A. Visualizzare una mappa centrata sull'Istituto -DONE
 
-B. Visualizzare almeno due markers sulla mappa 
+B. Visualizzare almeno due markers sulla mappa -Done
 
-C. Visualizzare popup differenziati per ogni marker
+C. Visualizzare popup differenziati per ogni marker -Done
 
 Riferimenti:
 - OpenLayers v.7
+
+Odio questo framework

@@ -1,10 +1,10 @@
 // Funzione init caricata all'avvio ...
 
-function init() {
+function init() { //crea le variabili e la mappa
   ol.proj.useGeographic()
 
 
-  markerImage = document.createElement("img")
+  markerImage = document.createElement("img") //questa parte crea lo style dei marker (in particolare l'icona)
   markerImage.src = "Media\\Img\\marker.png"
   markerStyle = new ol.style.Style({
     image: new ol.style.Icon({
@@ -14,7 +14,7 @@ function init() {
       })
     })
 
-  markerLayer = new ol.layer.Vector({
+  markerLayer = new ol.layer.Vector({ //questa parte crea il layer dei marker con i marker dentro
     source: new ol.source.Vector({
     features:[
       new ol.Feature({
@@ -26,9 +26,20 @@ function init() {
       ]
     })
   })
-  markerLayer.setStyle(markerStyle)
+  markerLayer.setStyle(markerStyle) //aggiunge lo style al layer dei marker
 
-  mappa = new ol.Map({
+  popup = document.getElementById('popup'); //ottiene gli elementi html del popup
+  innerPopup = document.getElementById('popup-content');
+  overlay = new ol.Overlay({ //crea il popup
+    element: popup,
+    autoPan: {
+      animation: {
+        duration: 250,
+      },
+    },
+  });
+
+  mappa = new ol.Map({ //crea la mappa con i due layer e l'overlay 
     layers: [
       new ol.layer.Tile({source: new ol.source.OSM()}), 
       markerLayer
@@ -38,35 +49,27 @@ function init() {
       zoom: 19
     }),
     target: 'map',
-  });
-
-  popup = document.getElementById('popup');
-  innerPopup = document.getElementById('popup-content');
-  overlay = new ol.Overlay({
-    element: popup,
-    autoPan: {
-      animation: {
-        duration: 250,
-      },
-    },
+    overlays:[overlay]
   });
 }
-function handleClick(click){
+function handleClick(click){ //cosa deve fare quando un utente clicca sulla mappa
   Features = mappa.getFeaturesAtPixel(click.pixel)
-  if (Features.lenght >= 1){
-    overlay.setPosition(click.pixel)
+  console.log("rilevato click")
+  console.log(Features)
+  if (Features.length >= 1){
+    console.log("trovata feature")
+    console.log(Features)
+    coordFeature = Features[0].values_.geometry.flatCoordinates
+    overlay.setPosition(coordFeature)
+    innerPopup.innerHTML = coordFeature
+  } else {
+    overlay.setPosition(undefined)
   }
 }
-let mappa
+let mappa //variabili globali 
 let popup
 let innerPopup
 let overlay
-init()
-mappa.on("singleclick",handleClick)
+init() 
+mappa.on("singleclick",handleClick) //evento che si trigghera a ogni click
 
-
-//crea una nuova feature: new ol.feature() devi specificare geometry con funzione new ol.geom.point(posizione), nome e decrizione.
-//crea un nuova style con new ol.style.Style() e crea una nuova icona con ol.style.icon()
-//aggiungi lo style alla feature 
-//aggiungi la feature a una vectorsource
-//vectorsource si crea con new ol.vector.source
